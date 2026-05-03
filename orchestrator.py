@@ -40,7 +40,7 @@ def run_claude(
         "--print",
         "--system-prompt", system_prompt,
         "--allowedTools", allowed_tools,
-        "--permission-mode", "bypassPermissions",
+        "--permission-mode", "acceptEdits",
         user_message,
     ]
 
