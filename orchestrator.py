@@ -4,7 +4,7 @@ Orchestrateur du système de trading multi-agents.
 Chaque agent = un appel claude -p qui lit et écrit des fichiers Markdown.
 
 Flux :
-  0. Python  : fetch_data.py          → data/market/YYYY-MM-DD.md
+  0. Claude  : market data agent       → data/market/YYYY-MM-DD.md
   1. Claude  : briefing agent         → data/briefing/YYYY-MM-DD.md
   2. Claude  : momentum trader        ┐ (en parallèle)
   3. Claude  : value trader           ┘ → data/traders/{style}/YYYY-MM-DD.md
@@ -57,19 +57,22 @@ def run_claude(
     return True
 
 
-# ── Étape 0 : fetch des données marché (Python pur) ───────────────────────────
+# ── Étape 0 : fetch des données marché via agent Claude + WebSearch ───────────
 def step_fetch_data(today: str) -> bool:
     market_file = PROJECT_DIR / "data" / "market" / f"{today}.md"
     if market_file.exists():
         print(f"  ✅ Données marché déjà présentes : {market_file.name}")
         return True
 
-    result = subprocess.run(
-        [sys.executable, str(PROJECT_DIR / "fetch_data.py")],
-        cwd=str(PROJECT_DIR),
-        capture_output=False,   # laisse les prints s'afficher
+    return run_claude(
+        agent_name="Agent 0 — Collecte Données Marché",
+        system_prompt_file="market_data.md",
+        user_message=(
+            f"Collecte les données de marché pour le {today} et écris-les dans "
+            f"data/market/{today}.md en suivant exactement le format spécifié."
+        ),
+        allowed_tools="WebSearch,Write",
     )
-    return result.returncode == 0
 
 
 # ── Étape 1 : Briefing ─────────────────────────────────────────────────────────
