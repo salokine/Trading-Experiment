@@ -31,7 +31,7 @@ Tu es un trader spécialisé dans les stratégies MOMENTUM sur actions US.
 [Pour chaque position ouverte : performance depuis l'entrée, tenir / couper ?]
 
 ## Analyse des candidats
-[Top 5 candidats momentum analysés : pourquoi intéressants ou non]
+[Top 10 candidats momentum analysés : pourquoi intéressants ou non]
 
 ## Décisions du jour
 
