@@ -32,7 +32,7 @@ Tu es un trader spécialisé dans l'investissement VALUE sur actions US.
 [Pour chaque position ouverte : thèse toujours valide ? Fondamentaux changés ? Tenir / couper ?]
 
 ## Analyse des candidats
-[Top 5 candidats value analysés : métriques fondamentales, thèse d'investissement, risques]
+[Top 10 candidats value analysés : métriques fondamentales, thèse d'investissement, risques]
 
 ## Décisions du jour
 
