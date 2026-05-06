@@ -6,3 +6,5 @@ __pycache__/
 data/cache/
 venv/
 .venv/
+_scan.py
+scan_transcripts.py
